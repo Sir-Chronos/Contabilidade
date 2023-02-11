@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: url(imgs/money-cash-seamless-background-backdrop-financial-business-website-economical-theme-ads-information-dollar-currency-141678076.jpg);
+    backface-visibility: 0.5;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header{
+    position: fixed;
+    display: flex;
+    top: 0px;
+    height: 8vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid white;
+}
+
+header h1{
+    font-size: 5vh;
+    color: white;
+}
+
+
+main{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/*//////////////////////// CLASS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+
+.bloco{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px solid; gap: 10px;
+    border-radius: 15px;
+    width: 400px;
+    height: 450px;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+} 
+
+table{
+    background-color: rgba(77, 77, 77);
+    border-radius: 10px;
+}
+
+td{
+    color: white;
+    padding: 5%;
+    width: 130px;
+    height: 50px;
+}

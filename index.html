@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamentos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Cálculo de folha de pagamentos</h1>
+        </nav>
+    </header>
+    <main>
+        <div class="tela01 bloco" id="tela01">
+            
+                <label for="#salario">Salário Bruto</label>
+                <input id="salario" type="text">
+                <label for="#dependencias">Dependencias</label>
+                <input id="dependencias" type="text">
+                <div>
+                    <input id="valeTransporte" type="checkbox">
+                    <label for="#valeTransporte">VALE TRANSPORTE</label>
+                </div>
+            
+            <button id="Enviar">Enviar</button>
+        </div>
+        <div class="tela02 bloco">
+            <text>RESULTADO</text>
+            <table>
+                <tr> <td>Salário bruto</td> <td>3500r$</td> </tr>
+                <tr> <td>INSS</td> <td>328748</td> </tr>
+                <tr> <td>IRRF</td> <td>923874</td> </tr>
+                <tr> <td>Vale Transporte</td> <td>29384</td> </tr>
+                <tr> <td>Salário Líquido</td> <td>1863732</td> </tr>
+            </table>
+            <button>Resetar</button>
+        </div>
+    </main>
+</body>
+</html>
