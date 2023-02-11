@@ -15,19 +15,19 @@
     </header>
     <main>
         <div class="tela01 bloco" id="tela01">
-            
+            <div class="table1">
                 <label for="#salario">Salário Bruto</label>
                 <input id="salario" type="text">
                 <label for="#dependencias">Dependencias</label>
                 <input id="dependencias" type="text">
                 <div>
-                    <input id="valeTransporte" type="checkbox">
+                    <input id="valeTransporte" type="checkbox" onclick="vt()">
                     <label for="#valeTransporte">VALE TRANSPORTE</label>
                 </div>
-            
-            <button id="Enviar">Enviar</button>
+            </div>
+            <button id="Enviar" onclick="enviar()">Enviar</button>
         </div>
-        <div class="tela02 bloco">
+        <div id="conta" class="tela02 bloco">
             <text>RESULTADO</text>
             <table>
                 <tr> <td>Salário bruto</td> <td>3500r$</td> </tr>
