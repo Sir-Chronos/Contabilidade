@@ -47,16 +47,16 @@ function enviar(){
 
     var baseIR = (bruto - inss) - (189.59*dependentes)
 
-        if(bruto < 1903.99){
+        if(baseIR < 1903.99){
             irrf=0
         }
-        else if(2826.65<=bruto>=1903.99){
-            irrf = baseIR*0.075-142,80
+        else if(baseIR < 2826.66){
+            irrf = baseIR*0.075-142.80
         }
-        else if(3751.05<=bruto>=2826.66){
+        else if(baseIR < 3751.06){
             irrf = baseIR*0.15-354.80
         }
-        else if(4664.68<=bruto>=3751.06){
+        else if(baseIR < 4664.69){
             irrf = baseIR*0.225-636.13
         }
         else{
