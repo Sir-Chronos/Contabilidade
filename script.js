@@ -1,69 +1,114 @@
-//VARIAVEIS
+// Recebe o conteudo do MAIN e armazena na [const = tela]
+const tela = document.getElementById("conteudo")
+const bool = document.getElementById("vale")
+var estado = 0
+var estado2 = 0
 
-var salariobruto = Number(document.getElementById("salario").value)
-var dependencia = Number(document.getElementById("dependente").value)
-const conta = document.getElementById("conta")
+//VARs a serem calculadas
 var inss
-var irrf
-var baseIR
-var vt
-var salarioliquido
-var enviar
+var vale = 0
+var irrf 
+var liquido
 
-//CALCULO DE VT
-
-function vt() {
-    vt = salariobruto*0.06
+//Verifica estado do vale
+function vt(){
+    if(estado == 1){
+        estado = 0
+    }
+    else{
+        estado = 1
+    }
 }
 
-// CALCULO DE INSS
 
-if(salariobruto<=1212.00){
-    inss = salariobruto*0.075
-}
-else if(2427.35<=salariobruto>=1212.01){
-    inss = salariobruto*0.09
-}
-else if(3641.03<=salariobruto>=2427.36){
-    inss = salariobruto*0.12
-}
-else{
-    inss = salariobruto*0.14
-}
+//Verifica as informações recebidas e gera o código correspondente
+function enviar(){    
+    
+    // Recebe os valores de salário bruto e dependentes
+    var bruto = Number.parseInt(document.getElementById("salarioBruto").value)
+    var dependentes = Number.parseInt(document.getElementById("dependentes").value)
 
-//CALCULO DE IRRF
+    // CALCULO DE INSS
 
-var baseIR = salariobruto - inss - 189.59*dependencia
+        if(bruto <= 1212.00){
+            inss = bruto*0.075
+        }
+        else if(bruto <= 2427.35){
+            inss = bruto*0.09
+        }
+        else if(bruto <= 3641.03){
+            inss = bruto*0.12
+        }
+        else{
+            inss = bruto*0.14
+        }
 
-if(2826.65<=salariobruto>=1903.99){
-    irrf = baseIR*0.075-142,80
-}
-else if(3751.05<=salariobruto>=2826.66){
-    irrf = baseIR*0.15-142,80
-}
-else if(4664.68<=salariobruto>=3751.06){
-    irrf = baseIR*0.225-142,80
-}
-else{
-    irrf = baseIR*0.275-142,80
-}
+    //CALCULO DE IRRF
 
-//CALCULO DE SALARIO LIQUIDO
+    var baseIR = (bruto - inss) - (189.59*dependentes)
 
-salarioliquido = salariobruto - inss - irrf - vt
+        if(bruto < 1903.99){
+            irrf=0
+        }
+        else if(2826.65<=bruto>=1903.99){
+            irrf = baseIR*0.075-142,80
+        }
+        else if(3751.05<=bruto>=2826.66){
+            irrf = baseIR*0.15-354.80
+        }
+        else if(4664.68<=bruto>=3751.06){
+            irrf = baseIR*0.225-636.13
+        }
+        else{
+            irrf = baseIR*0.275-869.36
+        }
+        
+    //CALCULO DO VALE
+    if(estado == 1){
+        vale =  bruto*0.06
+    }
+    else{}
 
-//FUNÇÃO ENVIAR
+    //CALCULO LIQUIDO
+        liquido = bruto - (inss + irrf + vale) 
 
-function enviar(){
-    conta.innerHTML = `
-        <text>RESULTADO</text>
-        <table>
-            <tr> <td>Salário bruto</td> <td>${salariobruto}</td> </tr>
-            <tr> <td>INSS</td> <td>${inss}</td> </tr>
-            <tr> <td>IRRF</td> <td>${irrf}</td> </tr>
-            <tr> <td>Vale Transporte</td> <td>${vt}</td> </tr>
-            <tr> <td>Salário Líquido</td> <td>${salarioliquido}</td> </tr>
-        </table>
-        <button>Resetar</button>
-        `
+
+    //DIV de resposta com valores calculados
+    tela.innerHTML =   `<div class="tela tela02">
+    <text>RESULTADO</text>
+    <table>
+        <tr> <td>Salário bruto</td>   <td class="align">R$ ${bruto}</td> </tr>
+        <tr> <td>INSS</td>            <td class="align">R$ ${inss.toFixed(2)}</td> </tr>
+        <tr> <td>IRRF</td>            <td class="align">R$ ${irrf.toFixed(2)}</td> </tr>
+        <tr> <td>Vale Transporte</td> <td class="align">R$ ${vale.toFixed(2)}</td> </tr>
+        <tr> <td>Salário Líquido</td> <td class="align">R$ ${liquido.toFixed(2)}</td> </tr>
+    </table>
+    <button onclick="reset()">Resetar</button>
+    </div>`
+} 
+
+function reset(){
+
+    estado2 = 0
+
+    tela.innerHTML = `        <div class="tela dados">
+
+    <span>
+        <label for="#salarioBruto">Salário Bruto:</label>
+        <input type="text" id="salarioBruto">
+    </span>
+
+    <span>
+        <label for="#dependentes">Dependentes:</label>
+        <input type="text" id="dependentes" inputmode="numeric">
+    </span>
+
+    <span>
+        <input type="checkbox" name="valeTransporte" id="vale" onclick="vt()">
+        <label for="#vale">Vale transporte</label>
+    </span>
+
+    <button onclick="enviar()">ENVIAR</button>
+
+</div>`
 }

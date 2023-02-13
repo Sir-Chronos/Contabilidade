@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: default;
 }
 
 body{
@@ -29,22 +30,21 @@ header{
 }
 
 header h1{
-    font-size: 5vh;
+    font-size: 30px;
     color: white;
 }
 
 main{
-    height: 100vh;
     display: flex;
-    flex-direction: row;
+    height: 100vh;
+    width: 100vw;   
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    justify-content: space-around;
+
 }
 
 /*//////////////////////// CLASS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
-.table1{
-        transition: 0.5s;
+.tela{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -52,54 +52,52 @@ main{
         gap: 10px;
         border: none;
         border-radius: 15px;
-        width: 300px;
-        height: 250px;
-        background-color: rgba(77,77,77);
+        width: 100vw;
+        height: 100vh;
+        max-height: 400px;
+        max-width: 300px;
+        background-color: rgba(0, 0, 0, 0.85);
         color: white;
         
 }
 
-
-
-.bloco{
-    transition: 0.5s;
+.dados{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border: 2px solid; gap: 10px;
-    border-radius: 15px;
-    width: 400px;
-    height: 450px;
-    background-color: rgba(0, 0, 0, 0.85);
-    color: white;
-} 
+    gap: 15px;
+    font-size: 20px;
+}
 
-table{
-    background-color: rgba(77, 77, 77);
-    border-radius: 10px;
+.tela02{
+    transition: 0.5s;
+    max-width: 600px;
+    padding: 5%;
+}
+
+.align{
+    text-align: center;
 }
 
 td{
     color: white;
-    padding: 5%;
-    width: 130px;
+    width: 600px;
     height: 50px;
+    font-size: 20px;
 }
+
 button{
     transition: 0.3s;
     border-radius: 7px;
     height: 40px;
+    min-height: 40px;
     width: 90px;
     font-size: large;
     background-color: #363636;
     color: white;
     cursor: pointer;
 }
+
 button:hover{
-    height: 50px;
-    width: 100px;
     background-color: rgb(170, 170, 170);
     color: black;
 }
