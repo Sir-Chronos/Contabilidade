@@ -108,4 +108,3 @@ function reset(){
 
 </div>`
 }
-// Gabriel
