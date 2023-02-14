@@ -94,10 +94,10 @@ function reset(){
     tela.innerHTML = `        <div class="tela dados">
 
     <label for="#salarioBruto">Salário Bruto:</label>
-    <input type="text" id="salarioBruto">
+    <input type="number" id="salarioBruto">
 
     <label for="#dependentes">Dependentes:</label>
-    <input type="text" id="dependentes" inputmode="numeric">
+    <input type="number" id="dependentes" inputmode="numeric">
 
 <span>
     <input type="checkbox" name="valeTransporte" id="vale" onclick="vt()">

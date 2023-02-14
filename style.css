@@ -42,6 +42,9 @@ main{
     justify-content: space-around;
 
 }
+input{
+    overflow: hidden;
+}
 
 /*//////////////////////// CLASS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .tela{
